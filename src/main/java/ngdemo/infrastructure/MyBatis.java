@@ -4,9 +4,7 @@ import static com.google.inject.name.Names.bindProperties;
 
 import java.util.Properties;
 
-import ngdemo.service.contract.UserService2;
-import ngdemo.service.contract.service2.UserMapper;
-import ngdemo.service.contract.service2.UserServiceImpl;
+import ngdemo.repositories.impl.mock.UserMapper;
 
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.MyBatisModule;

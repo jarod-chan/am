@@ -8,7 +8,7 @@ import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.api.core.ResourceConfig;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
 
-public class WebModule extends ServletModule {
+public class Web extends ServletModule {
 
 	@Override
 	protected void configureServlets() {

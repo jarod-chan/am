@@ -1,51 +1,59 @@
 package ngdemo.service.impl;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import java.util.List;
+
 import ngdemo.domain.User;
-import ngdemo.repositories.contract.UserRepository;
+import ngdemo.repositories.impl.mock.UserMapper;
 import ngdemo.service.contract.UserService;
 
-import java.util.List;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
-
     @Inject
-    public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    private UserMapper userMapper;
 
-    @Override
-    public List getAllUsers() {
-        return this.userRepository.getAll();
-    }
+	@Override
+	public User findUser(String userId) {
+		 return this.userMapper.getUser(userId);
+	}
 
-    @Override
-    public User getById(int id) {
-        return this.userRepository.getById(id);
-    }
+	@Override
+	public List<User> getAllUsers() {
+		return this.userMapper.getAllUser();
+	}
+	
+	@Override
+	public User createNewUser(User user) {
+		this.userMapper.insertUser(user);
+		return user;
+	}
 
-    @Override
-    public User createNewUser(User user) {
-        User u = this.userRepository.create(user);
-        return u;
-    }
+	@Override
+	public User getById(int id) {
+		return this.userMapper.getUserById(id);
+	}
 
-    @Override
-    public User update(User user) {
-        return this.userRepository.update(user);
-    }
 
-    @Override
-    public void remove(int id) {
-        this.userRepository.remove(id);
-    }
 
-    @Override
-    public int getNumberOfUsers() {
-        return this.userRepository.getNumberOfUsers();
-    }
+	@Override
+	public User update(User user) {
+		this.userMapper.updateUser(user);
+		return user;
+	}
+
+	@Override
+	public void remove(int id) {
+		this.userMapper.deleteUser(id);
+		
+	}
+
+	@Override
+	public int getNumberOfUsers() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

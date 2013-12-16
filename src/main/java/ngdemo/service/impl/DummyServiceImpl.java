@@ -1,10 +1,11 @@
 package ngdemo.service.impl;
 
-import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import ngdemo.domain.User;
 import ngdemo.repositories.contract.DummyRepository;
 import ngdemo.service.contract.DummyService;
+
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
 @Singleton
 public class DummyServiceImpl implements DummyService {

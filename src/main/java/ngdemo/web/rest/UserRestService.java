@@ -13,17 +13,17 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import ngdemo.domain.User;
-import ngdemo.service.contract.UserService2;
+import ngdemo.service.contract.UserService;
 
 import com.google.inject.Inject;
 
 @Path("/users")
 public class UserRestService {
 
-	private final UserService2 userService;
+	private final UserService userService;
 
 	@Inject
-	private UserRestService(UserService2 userService) {
+	private UserRestService(UserService userService) {
 		this.userService = userService;
 	}
     

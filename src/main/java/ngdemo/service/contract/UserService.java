@@ -1,20 +1,28 @@
 package ngdemo.service.contract;
 
-import ngdemo.domain.User;
-
 import java.util.List;
+
+import ngdemo.domain.User;
 
 public interface UserService {
 
-    List<User> getAllUsers();
+	User findUser(String userId);
 
-    User getById(int id);
+	List<User> getAllUsers();
 
-    User createNewUser(User user);
+	User createNewUser(User user);
 
-    User update(User user);
+	User getById(int id);
+	
+	User update(User user);
 
-    void remove(int id);
+	void remove(int id);
 
-    int getNumberOfUsers();
+
+	
+
+	
+
+	int getNumberOfUsers();
+
 }

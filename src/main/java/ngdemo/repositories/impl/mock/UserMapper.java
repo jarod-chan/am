@@ -1,4 +1,4 @@
-package ngdemo.service.contract.service2;
+package ngdemo.repositories.impl.mock;
 
 import java.util.List;
 

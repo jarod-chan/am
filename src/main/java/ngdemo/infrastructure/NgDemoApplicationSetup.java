@@ -8,6 +8,6 @@ public class NgDemoApplicationSetup extends GuiceServletContextListener {
 
 	@Override
 	protected Injector getInjector() {
-		return Guice.createInjector(new MyBatis(),new WebModule(), new UserModule());
+		return Guice.createInjector(new MyBatis(),new Web(), new Am());
 	}
 }
