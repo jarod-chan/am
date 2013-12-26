@@ -1,8 +1,9 @@
-package ngdemo.service.contract;
+package am.service.contract;
 
 import java.util.List;
 
-import ngdemo.domain.User;
+import am.domain.User;
+
 
 public interface UserService {
 

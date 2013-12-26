@@ -1,15 +1,16 @@
-package ngdemo.infrastructure;
+package am.infrastructure;
 
 import static com.google.inject.name.Names.bindProperties;
 
 import java.util.Properties;
 
-import ngdemo.repositories.impl.mock.UserMapper;
 
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.MyBatisModule;
 import org.mybatis.guice.datasource.builtin.PooledDataSourceProvider;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
+
+import am.repositories.UserMapper;
 
 public class MyBatis extends MyBatisModule {
 

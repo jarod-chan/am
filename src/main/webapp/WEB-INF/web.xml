@@ -15,7 +15,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>ngdemo.infrastructure.applicationSetup</listener-class>
+        <listener-class>am.infrastructure.applicationSetup</listener-class>
     </listener>
 
 </web-app>

@@ -18,20 +18,20 @@
 var services = angular.module('ngdemo.services', ['ngResource']);
 
 services.factory('DummyFactory', function ($resource) {
-    return $resource('/am/web/dummy', {}, {
+    return $resource('/am/rest/dummy', {}, {
         query: { method: 'GET', params: {}, isArray: false }
     })
 });
 
 services.factory('UsersFactory', function ($resource) {
-    return $resource('/am/web/users', {}, {
+    return $resource('/am/rest/users', {}, {
         query: { method: 'GET', isArray: true },
         create: { method: 'POST' }
     })
 });
 
 services.factory('UserFactory', function ($resource) {
-    return $resource('/am/web/users/:id', {}, {
+    return $resource('/am/rest/users/:id', {}, {
         show: { method: 'GET' },
         update: { method: 'PUT', params: {id: '@id'} },
         delete: { method: 'DELETE', params: {id: '@id'} }

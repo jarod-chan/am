@@ -1,4 +1,4 @@
-package ngdemo.infrastructure;
+package am.infrastructure;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;

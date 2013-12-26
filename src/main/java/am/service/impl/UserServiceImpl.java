@@ -1,10 +1,11 @@
-package ngdemo.service.impl;
+package am.service.impl;
 
 import java.util.List;
 
-import ngdemo.domain.User;
-import ngdemo.repositories.impl.mock.UserMapper;
-import ngdemo.service.contract.UserService;
+
+import am.domain.User;
+import am.repositories.UserMapper;
+import am.service.contract.UserService;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

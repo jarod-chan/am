@@ -1,4 +1,4 @@
-package ngdemo.infrastructure;
+package am.infrastructure;
 
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
@@ -16,7 +16,7 @@ public class Web extends ServletModule {
 		super.configureServlets();
 
 		// Configuring Jersey via Guice:
-		ResourceConfig resourceConfig = new PackagesResourceConfig("ngdemo/web");
+		ResourceConfig resourceConfig = new PackagesResourceConfig("am/web");
 		for (Class<?> resource : resourceConfig.getClasses()) {
 			bind(resource);
 		}
@@ -24,7 +24,7 @@ public class Web extends ServletModule {
 		// hook Jackson into Jersey as the POJO <-> JSON mapper
 		bind(JacksonJsonProvider.class).in(Scopes.SINGLETON);
 
-		serve("/web/*").with(GuiceContainer.class);
+		serve("/rest/*").with(GuiceContainer.class);
 	}
 
 }

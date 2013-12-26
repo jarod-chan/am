@@ -1,4 +1,4 @@
-package ngdemo.web.rest;
+package am.web.rest;
 
 import java.util.List;
 
@@ -12,8 +12,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ngdemo.domain.User;
-import ngdemo.service.contract.UserService;
+
+import am.domain.User;
+import am.service.contract.UserService;
 
 import com.google.inject.Inject;
 
@@ -61,24 +62,5 @@ public class UserRestService {
     public void remove(@PathParam("id") int id) {
         userService.remove(id);
     }
-    
 
-/*    @GET
-    @Path("numberOfUsers")
-    @Produces(MediaType.APPLICATION_JSON)
-    public int getNumberOfUsers() {
-        return userService.getNumberOfUsers();
-    }
-
-
-
-
-
-
-
-
-
-    
-    *
-    */
 }
