@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-var app = angular.module('ngdemo.controllers', []);
+var app = angular.module('fygam.controllers', []);
 
 
 // Clear browser cache (in development mode)
@@ -14,11 +14,10 @@ app.run(function ($rootScope, $templateCache) {
 });
 
 
-app.controller('DummyCtrl', ['$scope', 'DummyFactory', function ($scope, DummyFactory) {
-    $scope.firstname = 'bla from controller';
-//    DummyFactory.get({}, function (dummyFactory) {
-//        $scope.firstname = dummyFactory.firstName;
-//    })
+app.controller('HomeCtrl', ['$scope','$location',function ($scope, $location) {
+	
+	
+	
 }]);
 
 app.controller('UserListCtrl', ['$scope', 'UsersFactory', 'UserFactory', '$location',
@@ -62,10 +61,25 @@ app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$loc
 
 app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', '$location',
     function ($scope, UsersFactory, $location) {
+		$scope.sel_enabled=[
+	       {name: '启用',value: 'y'}, 
+	       {name: '禁用',value: 'n'}
+	    ];
+		
+		 $scope.user ={
+			enabled:'y'	 
+		 };
 
         // callback for ng-click 'createNewUser':
-        $scope.createNewUser = function () {
-            UsersFactory.create($scope.user);
+        $scope.saveUser = function () {
+        	var encryptPassword=hex_sha1(hex_sha1($scope.page.password));
+        	$scope.user.password=encryptPassword;
+        	UsersFactory.save($scope.user);
             $location.path('/user-list');
         }
+        
+      //callback for ng-click 'cancel':
+        $scope.cancel = function () {
+            $location.path('/user-list');     
+        };
     }]);

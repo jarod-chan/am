@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="ngdemo">
+<html lang="en" ng-app="fygam">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +9,27 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css"/>
 </head>
 <body>
-<ul class="menu">
-    <li><a href="#/dummy">dummy</a></li>
-    <li><a href="#/user-list">user-list</a></li>
-    <li><a href="#/user-detail/1">user-detail/1</a></li>
-    <li><a href="#/user-creation">user-creation</a></li>
-</ul>
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <ul class="nav">
+                <a class="brand" href="#">方远项目管理系统-管理平台</a>
+                <li><a href="#/user-list">用户管理</a></li>
+                 <li class="dropdown" id="accountmenu">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">流程管理<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">PHP</a></li>
+                        <li><a href="#">MySQL</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">JavaScript</a></li>
+						<li><a href="#">HTML5</a></li>
+                    </ul>
+                </li> 
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div ng-view></div>
 
@@ -24,10 +39,10 @@
 <!-- Bootstrap ============================================================= -->
 <script src="js/bootstrap/bootstrap.js"></script>
 
-<!-- AngularJS ============================================================= -->
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
--->
+<!-- jshash-2.2 ============================================================= -->
+<script src="js/jshash-2.2/sha1-min.js"></script>
+
+<!-- AngularJS =============================================================-->
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-resource.js"></script>
 
@@ -36,7 +51,7 @@
 <script src="js/services.js"></script>
 <script src="js/controllers.js"></script>
 <script src="js/filters.js"></script>
-<script src="js/directives.js"></script>
+<script src="js/directives.js"></script> 
 
 </body>
 </html>

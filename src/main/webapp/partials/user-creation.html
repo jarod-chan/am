@@ -1,25 +1,69 @@
 <div class="container">
-    <h1>Create a new user</h1>
+	<h1>用户新增</h1>
 
-    <form novalidate="novalidate" class="form-horizontal">
-        <div class="control-group">
-            <label class="control-label" for="inputFirstName">First name:</label>
+	<form novalidate name="form" class="form-horizontal vd-form">
+		<div class="control-group">
+			<label class="control-label" for="key">用户名:</label>
 
-            <div class="controls">
-                <input type="text" id="inputFirstName" ng-model="user.firstName" placeholder="First name"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="inputLastName">Last name:</label>
+			<div class="controls">
+				<input type="text" id="key" name="key" ng-model="user.key" required  ng-minlength=2/>
+				<span class="label label-warning">!</span>
+				<span class="text-error" ng-show="form.key.$dirty && form.key.$invalid">
+					 <span ng-show="form.key.$error.required">必填</span>
+					 <span ng-show="form.key.$error.minlength">最小两位</span>
+				</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="name">真实姓名:</label>
 
-            <div class="controls">
-                <input type="text" id="inputLastName" ng-model="user.lastName" placeholder="Last name"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <div class="controls">
-                <a ng-click="createNewUser()" class="btn btn-small btn-primary">create new user</a>
-            </div>
-        </div>
-    </form>
+			<div class="controls">
+				<input type="text" id="name" name="name" ng-model="user.name"  required  ng-minlength=2 />
+				<span class="label label-warning">!</span>
+				<span class="text-error" ng-show="form.name.$dirty && form.name.$invalid">
+					 <span ng-show="form.name.$error.required">必填</span>
+					 <span ng-show="form.name.$error.minlength">最小两位</span>
+				</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="cellphone">手机:</label>
+
+			<div class="controls">
+				<input type="text" id="cellphone" ng-model="user.cellphone" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="email">邮箱:</label>
+
+			<div class="controls">
+				<input type="text" id="email" ng-model="user.email" />
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="password">密码:</label>
+
+			<div class="controls">
+				<input type="text" id="password" name="password" ng-model="page.password" required  ng-minlength=6 />
+				<span class="label label-warning">!</span>
+				<span class="text-error" ng-show="form.password.$dirty && form.password.$invalid">
+					 <span ng-show="form.password.$error.required">必填</span>
+					 <span ng-show="form.password.$error.minlength">最小六位</span>
+				</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="enabled">状态:</label>
+			<div class="controls">
+				<select id="enabled"  ng-model="user.enabled"  ng-options="option.value as option.name for option in sel_enabled"></select>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<a ng-click="saveUser()" ng-disabled="form.$invalid" class="btn btn-small btn-primary">保存</a>
+			    <a ng-click="cancel()" class="btn btn-small">返回</a>
+			</div>
+		</div>
+
+	</form>
 </div>

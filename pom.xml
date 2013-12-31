@@ -13,7 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jersey.version>1.17.1</jersey.version>
         <guice.version>3.0</guice.version>
-        <guava.version>r09</guava.version>
+        <guava.version>15.0</guava.version>
         <java.version>1.6</java.version>
     </properties>
 
@@ -165,6 +165,13 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
-        
+		
+		<!-- 加密 -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.8</version>
+		</dependency>
+
     </dependencies>
 </project>

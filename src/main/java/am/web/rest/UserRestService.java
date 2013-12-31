@@ -12,9 +12,10 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-
-import am.domain.User;
-import am.service.contract.UserService;
+import am.domain.model.user.User;
+import am.infrastructure.encrypt.Encipher;
+import am.infrastructure.encrypt.Encrypted;
+import am.service.UserService;
 
 import com.google.inject.Inject;
 
@@ -22,45 +23,77 @@ import com.google.inject.Inject;
 public class UserRestService {
 
 	private final UserService userService;
+	
+	private final Encipher encipher;
 
 	@Inject
-	private UserRestService(UserService userService) {
+	private UserRestService(UserService userService,Encipher encipher) {
 		this.userService = userService;
+		this.encipher=encipher;
 	}
-    
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<User> getAllUsersInJSON() {
-        return userService.getAllUsers();
-    }
-    
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public User create(User user) {
-        return userService.createNewUser(user);
-    }
-    
-    @GET
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public User getUserById(@PathParam("id") int id) {
-        return userService.getById(id);
-    }
-    
-    @PUT
-    @Path("{id}")
-    @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    public User update(User user) {
-        return userService.update(user);
-    }
-    
-    @DELETE
-    @Path("{id}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public void remove(@PathParam("id") int id) {
-        userService.remove(id);
-    }
+
+	@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<User> getAllUsersInJSON() {
+		return userService.getAllUsers();
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public User create(User user) {
+		String password = user.getPassword();
+		Encrypted encrypt = this.encipher.encrypt(password);
+		user.setSalt(encrypt.getSalt());
+		user.setPassword(encrypt.getEncrypeted());
+		return userService.create(user);
+	}
+	
+	
+	
+//	@GET
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	public User create() {
+//		return userService.create();
+//	}
+//
+//	
+//	@POST
+//	@Consumes(MediaType.APPLICATION_JSON)
+//	@Produces(MediaType.APPLICATION_JSON)
+//	public User save(User user) {
+//		return userService.createNewUser(user);
+//	}
+
+	
+	
+	
+	
+	
+	
+
+
+
+	@GET
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUserById(@PathParam("id") int id) {
+		return userService.getById(id);
+	}
+
+	@PUT
+	@Path("{id}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public User update(User user) {
+		return userService.update(user);
+	}
+
+	@DELETE
+	@Path("{id}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void remove(@PathParam("id") int id) {
+		userService.remove(id);
+	}
 
 }

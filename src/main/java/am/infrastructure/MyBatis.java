@@ -4,7 +4,6 @@ import static com.google.inject.name.Names.bindProperties;
 
 import java.util.Properties;
 
-
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 import org.mybatis.guice.MyBatisModule;
 import org.mybatis.guice.datasource.builtin.PooledDataSourceProvider;
@@ -23,15 +22,14 @@ public class MyBatis extends MyBatisModule {
 		  addMapperClass(UserMapper.class);
 
           bindProperties(binder(), createTestProperties());
-          
 	}
 
 	public static Properties createTestProperties() {
 		Properties myBatisProperties = new Properties();
-		myBatisProperties.setProperty("mybatis.environment.id", "test");
+		myBatisProperties.setProperty("mybatis.environment.id", "pm");
 		myBatisProperties.setProperty("JDBC.host", "localhost");
 		myBatisProperties.setProperty("JDBC.port", "3306");
-		myBatisProperties.setProperty("JDBC.schema", "mybatis-guice");
+		myBatisProperties.setProperty("JDBC.schema", "pm_test");
 		myBatisProperties.setProperty("JDBC.username", "root");
 		myBatisProperties.setProperty("JDBC.password", "0");
 		myBatisProperties.setProperty("JDBC.autoCommit", "false");

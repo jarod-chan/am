@@ -4,7 +4,7 @@ import com.google.inject.Guice;
 import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceServletContextListener;
 
-public class applicationSetup extends GuiceServletContextListener {
+public class ApplicationSetup extends GuiceServletContextListener {
 
 	@Override
 	protected Injector getInjector() {

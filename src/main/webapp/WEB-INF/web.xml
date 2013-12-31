@@ -15,7 +15,7 @@
     </filter-mapping>
 
     <listener>
-        <listener-class>am.infrastructure.applicationSetup</listener-class>
+        <listener-class>am.infrastructure.ApplicationSetup</listener-class>
     </listener>
 
 </web-app>

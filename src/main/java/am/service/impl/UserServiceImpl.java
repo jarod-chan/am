@@ -2,10 +2,9 @@ package am.service.impl;
 
 import java.util.List;
 
-
-import am.domain.User;
+import am.domain.model.user.User;
 import am.repositories.UserMapper;
-import am.service.contract.UserService;
+import am.service.UserService;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -27,7 +26,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	@Override
-	public User createNewUser(User user) {
+	public User create(User user) {
 		this.userMapper.insertUser(user);
 		return user;
 	}
@@ -56,5 +55,12 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	@Override
+	public User save(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

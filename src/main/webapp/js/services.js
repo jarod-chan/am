@@ -15,18 +15,12 @@
 
  */
 
-var services = angular.module('ngdemo.services', ['ngResource']);
-
-services.factory('DummyFactory', function ($resource) {
-    return $resource('/am/rest/dummy', {}, {
-        query: { method: 'GET', params: {}, isArray: false }
-    })
-});
+var services = angular.module('fygam.services', ['ngResource']);
 
 services.factory('UsersFactory', function ($resource) {
     return $resource('/am/rest/users', {}, {
         query: { method: 'GET', isArray: true },
-        create: { method: 'POST' }
+        save: { method: 'POST' }
     })
 });
 

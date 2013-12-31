@@ -1,21 +1,32 @@
-<div class="span6">
-    <table class="table table-striped table-condensed">
+<div class='container'>
+	<h1>用户列表</h1>
+	<div class="text-right">
+		<a ng-click="createNewUser()" class="btn btn-small text-right">新增</a>
+	</div>   
+    <table class="table table-bordered table-condensed table-hover">
         <thead>
         <tr>
-            <th style="min-width: 80px;">First name</th>
-            <th style="min-width: 80px;">Last name</th>
-            <th style="width:20px;">&nbsp;</th>
-            <th style="width:20px;">&nbsp;</th>
+            <th style="min-width: 80px;">用户名</th>
+            <th style="min-width: 80px;">真实姓名</th>
+            <th style="min-width: 80px;">手机</th>
+            <th style="min-width: 80px;">邮箱</th>
+            <th style="min-width: 80px;">状态</th>
+            <th style="min-width:20px;">操作</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="user in users">
-            <td>{{ user.firstName }}</td>
-            <td>{{ user.lastName }}</td>
-            <td><a ng-click="editUser(user.id)" class="btn btn-small btn-primary">edit</a></td>
-            <td><a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">delete</a></td>
+            <td>{{ user.key }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.cellphone }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.enabled | enabled }}</td>
+            <td>
+            	<a ng-click="editUser(user.id)" class="btn btn-small btn-primary">修改</a>
+            	<a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">删除</a>
+            </td>
         </tr>
         </tbody>
     </table>
-    <a ng-click="createNewUser()" class="btn btn-small">create new user</a>
+
 </div>
