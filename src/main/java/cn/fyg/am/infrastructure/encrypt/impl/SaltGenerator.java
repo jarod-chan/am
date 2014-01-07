@@ -1,4 +1,4 @@
-package am.infrastructure.encrypt.impl;
+package cn.fyg.am.infrastructure.encrypt.impl;
 
 import java.util.Random;
 

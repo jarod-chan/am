@@ -1,4 +1,4 @@
-package am.infrastructure;
+package cn.fyg.am.infrastructure;
 
 import org.codehaus.jackson.jaxrs.JacksonJsonProvider;
 
@@ -16,7 +16,7 @@ public class Web extends ServletModule {
 		super.configureServlets();
 
 		// Configuring Jersey via Guice:
-		ResourceConfig resourceConfig = new PackagesResourceConfig("am/web");
+		ResourceConfig resourceConfig = new PackagesResourceConfig("cn/fyg/am/web");
 		for (Class<?> resource : resourceConfig.getClasses()) {
 			bind(resource);
 		}

@@ -1,4 +1,4 @@
-package am.web.rest;
+package cn.fyg.am.web.rest;
 
 import java.util.List;
 
@@ -12,10 +12,11 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import am.domain.model.user.User;
-import am.infrastructure.encrypt.Encipher;
-import am.infrastructure.encrypt.Encrypted;
-import am.service.UserService;
+
+import cn.fyg.am.application.UserService;
+import cn.fyg.am.domain.model.user.User;
+import cn.fyg.am.infrastructure.encrypt.Encipher;
+import cn.fyg.am.infrastructure.encrypt.Encrypted;
 
 import com.google.inject.Inject;
 

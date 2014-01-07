@@ -1,4 +1,4 @@
-package am.infrastructure.encrypt;
+package cn.fyg.am.infrastructure.encrypt;
 
 public interface Encrypted {
 	

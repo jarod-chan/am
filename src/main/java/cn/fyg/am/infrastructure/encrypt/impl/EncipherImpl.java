@@ -1,9 +1,10 @@
-package am.infrastructure.encrypt.impl;
+package cn.fyg.am.infrastructure.encrypt.impl;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import am.infrastructure.encrypt.Encipher;
-import am.infrastructure.encrypt.Encrypted;
+
+import cn.fyg.am.infrastructure.encrypt.Encipher;
+import cn.fyg.am.infrastructure.encrypt.Encrypted;
 
 import com.google.common.base.Preconditions;
 

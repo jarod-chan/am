@@ -1,4 +1,4 @@
-package am.infrastructure;
+package cn.fyg.am.infrastructure;
 
 import static com.google.inject.name.Names.bindProperties;
 
@@ -9,7 +9,8 @@ import org.mybatis.guice.MyBatisModule;
 import org.mybatis.guice.datasource.builtin.PooledDataSourceProvider;
 import org.mybatis.guice.datasource.helper.JdbcHelper;
 
-import am.repositories.UserMapper;
+import cn.fyg.am.domain.model.user.UserMapper;
+
 
 public class MyBatis extends MyBatisModule {
 

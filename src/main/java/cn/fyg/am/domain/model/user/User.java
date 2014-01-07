@@ -1,4 +1,4 @@
-package am.domain.model.user;
+package cn.fyg.am.domain.model.user;
 
 import javax.xml.bind.annotation.XmlRootElement;
 

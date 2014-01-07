@@ -15,10 +15,11 @@
         <guice.version>3.0</guice.version>
         <guava.version>15.0</guava.version>
         <java.version>1.6</java.version>
+        <slf4j.version>1.5.10</slf4j.version>
     </properties>
 
     <build>
-        <finalName>ngdemo</finalName>
+        <finalName>am</finalName>
         <plugins>
         	<!-- Ensures we are compiling at 1.6 level -->
 			<plugin>
@@ -172,6 +173,48 @@
 			<artifactId>commons-codec</artifactId>
 			<version>1.8</version>
 		</dependency>
+		
+		<!-- logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jul-to-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+			<scope>runtime</scope>
+		</dependency>
 
+		
     </dependencies>
 </project>

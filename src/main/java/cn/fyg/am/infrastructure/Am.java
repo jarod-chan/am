@@ -1,10 +1,11 @@
-package am.infrastructure;
+package cn.fyg.am.infrastructure;
 
 
-import am.infrastructure.encrypt.Encipher;
-import am.infrastructure.encrypt.impl.EncipherImpl;
-import am.service.UserService;
-import am.service.impl.UserServiceImpl;
+
+import cn.fyg.am.application.UserService;
+import cn.fyg.am.application.impl.UserServiceImpl;
+import cn.fyg.am.infrastructure.encrypt.Encipher;
+import cn.fyg.am.infrastructure.encrypt.impl.EncipherImpl;
 
 import com.google.inject.AbstractModule;
 

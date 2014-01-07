@@ -1,6 +1,6 @@
-package am.infrastructure.encrypt.impl;
+package cn.fyg.am.infrastructure.encrypt.impl;
 
-import am.infrastructure.encrypt.Encrypted;
+import cn.fyg.am.infrastructure.encrypt.Encrypted;
 
 class EncryptedItem implements Encrypted {
 	

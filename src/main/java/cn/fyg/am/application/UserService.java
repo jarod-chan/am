@@ -1,8 +1,9 @@
-package am.service;
+package cn.fyg.am.application;
 
 import java.util.List;
 
-import am.domain.model.user.User;
+import cn.fyg.am.domain.model.user.User;
+
 
 
 public interface UserService {

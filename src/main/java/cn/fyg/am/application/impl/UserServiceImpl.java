@@ -1,10 +1,11 @@
-package am.service.impl;
+package cn.fyg.am.application.impl;
 
 import java.util.List;
 
-import am.domain.model.user.User;
-import am.repositories.UserMapper;
-import am.service.UserService;
+
+import cn.fyg.am.application.UserService;
+import cn.fyg.am.domain.model.user.User;
+import cn.fyg.am.domain.model.user.UserMapper;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
