@@ -49,6 +49,28 @@ public class UserRestService {
 		return userService.create(user);
 	}
 	
+	@GET
+	@Path("{key}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public User getUserById(@PathParam("key")String key) {
+		return userService.find(key);
+	}
+
+	@PUT
+	@Path("{key}")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public User update(User user) {
+		return userService.update(user);
+	}
+
+	@DELETE
+	@Path("{key}")
+	@Produces(MediaType.APPLICATION_JSON)
+	public void remove(@PathParam("key")String key) {
+		userService.remove(key);
+	}
+	
 	
 	
 //	@GET
@@ -74,26 +96,6 @@ public class UserRestService {
 
 
 
-	@GET
-	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public User getUserById(@PathParam("id") int id) {
-		return userService.getById(id);
-	}
-
-	@PUT
-	@Path("{id}")
-	@Consumes(MediaType.APPLICATION_JSON)
-	@Produces(MediaType.APPLICATION_JSON)
-	public User update(User user) {
-		return userService.update(user);
-	}
-
-	@DELETE
-	@Path("{id}")
-	@Produces(MediaType.APPLICATION_JSON)
-	public void remove(@PathParam("id") int id) {
-		userService.remove(id);
-	}
+	
 
 }

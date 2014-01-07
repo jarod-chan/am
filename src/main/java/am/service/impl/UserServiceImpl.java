@@ -15,10 +15,7 @@ public class UserServiceImpl implements UserService {
     @Inject
     private UserMapper userMapper;
 
-	@Override
-	public User findUser(String userId) {
-		 return this.userMapper.getUser(userId);
-	}
+
 
 	@Override
 	public List<User> getAllUsers() {
@@ -30,14 +27,13 @@ public class UserServiceImpl implements UserService {
 		this.userMapper.insertUser(user);
 		return user;
 	}
-
+	
+	
 	@Override
-	public User getById(int id) {
-		return this.userMapper.getUserById(id);
+	public User find(String key) {
+		return this.userMapper.find(key);
 	}
-
-
-
+	
 	@Override
 	public User update(User user) {
 		this.userMapper.updateUser(user);
@@ -45,10 +41,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void remove(int id) {
-		this.userMapper.deleteUser(id);
+	public void remove(String key) {
+		this.userMapper.deleteUser(key);
 		
 	}
+
+
+
+
+
+
+
+
 
 	@Override
 	public int getNumberOfUsers() {
@@ -61,6 +65,13 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public User findUser(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 
 }

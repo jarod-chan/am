@@ -25,9 +25,9 @@ services.factory('UsersFactory', function ($resource) {
 });
 
 services.factory('UserFactory', function ($resource) {
-    return $resource('/am/rest/users/:id', {}, {
+    return $resource('/am/rest/users/:key', {}, {
         show: { method: 'GET' },
-        update: { method: 'PUT', params: {id: '@id'} },
-        delete: { method: 'DELETE', params: {id: '@id'} }
+        update: { method: 'PUT', params: {key: '@key'} },
+        delete: { method: 'DELETE', params: {key: '@key'} }
     })
 });

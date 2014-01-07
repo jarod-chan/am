@@ -11,26 +11,23 @@ public interface UserService {
 	
 	User create(User user);
 
+	User find(String key);
 	
+	User update(User user);
 	
+	void remove(String key);
 	
 	
 	
 	
 	User save(User user);
 	
-	
-	
-	
 	User findUser(String userId);
 
-
-
-	User getById(int id);
 	
-	User update(User user);
 
-	void remove(int id);
+
+
 
 	int getNumberOfUsers();
 

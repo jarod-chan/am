@@ -24,13 +24,13 @@ app.controller('UserListCtrl', ['$scope', 'UsersFactory', 'UserFactory', '$locat
     function ($scope, UsersFactory, UserFactory, $location) {
 
         // callback for ng-click 'editUser':
-        $scope.editUser = function (userId) {
-            $location.path('/user-detail/' + userId);
+        $scope.editUser = function (userKey) {
+            $location.path('/user-detail/' + userKey);
         };
 
         // callback for ng-click 'deleteUser':
-        $scope.deleteUser = function (userId) {
-            UserFactory.delete({ id: userId });
+        $scope.deleteUser = function (userKey) {
+            UserFactory.delete({ key: userKey });
             $scope.users = UsersFactory.query();
         };
 
@@ -44,9 +44,14 @@ app.controller('UserListCtrl', ['$scope', 'UsersFactory', 'UserFactory', '$locat
 
 app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$location',
     function ($scope, $routeParams, UserFactory, $location) {
-
+		$scope.sel_enabled=[
+	       {name: '启用',value: 'y'}, 
+	       {name: '禁用',value: 'n'}
+	    ];
+	
         // callback for ng-click 'updateUser':
         $scope.updateUser = function () {
+        	if($scope.form.$invalid) return;
             UserFactory.update($scope.user);
             $location.path('/user-list');
         };
@@ -56,14 +61,14 @@ app.controller('UserDetailCtrl', ['$scope', '$routeParams', 'UserFactory', '$loc
             $location.path('/user-list');
         };
 
-        $scope.user = UserFactory.show({id: $routeParams.id});
+        $scope.user = UserFactory.show({key: $routeParams.key});
     }]);
 
 app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', '$location',
     function ($scope, UsersFactory, $location) {
 		$scope.sel_enabled=[
 	       {name: '启用',value: 'y'}, 
-	       {name: '禁用',value: 'n'}
+	       {name: '停用',value: 'n'}
 	    ];
 		
 		 $scope.user ={
@@ -72,6 +77,7 @@ app.controller('UserCreationCtrl', ['$scope', 'UsersFactory', '$location',
 
         // callback for ng-click 'createNewUser':
         $scope.saveUser = function () {
+        	if($scope.form.$invalid) return;
         	var encryptPassword=hex_sha1(hex_sha1($scope.page.password));
         	$scope.user.password=encryptPassword;
         	UsersFactory.save($scope.user);

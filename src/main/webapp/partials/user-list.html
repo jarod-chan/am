@@ -22,8 +22,8 @@
             <td>{{ user.email }}</td>
             <td>{{ user.enabled | enabled }}</td>
             <td>
-            	<a ng-click="editUser(user.id)" class="btn btn-small btn-primary">修改</a>
-            	<a ng-click="deleteUser(user.id)" class="btn btn-small btn-danger">删除</a>
+            	<a ng-click="editUser(user.key)" class="btn btn-small btn-primary">修改</a>
+            	<a ng-click="deleteUser(user.key)" class="btn btn-small btn-danger">删除</a>
             </td>
         </tr>
         </tbody>
